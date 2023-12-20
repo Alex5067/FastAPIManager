@@ -16,7 +16,7 @@ const Login = ({ onLogin }) => {
       body: JSON.stringify({ email: email, hashedPW: password }),
     };
 
-    const response = await fetch("http://localhost:8000/api/admins/me", requestOptions);
+    const response = await fetch("http://localhost:8000/api/dev/admins/me", requestOptions);
     const data = await response.json();
 
     if (!response.ok) {

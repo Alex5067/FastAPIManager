@@ -19,7 +19,7 @@ const UserModal = ({ active, handleModal, id, setErrorMessage }) => {
           "Content-Type": "application/json",
         },
       };
-      const response = await fetch(`/api/users/${id}`, requestOptions);
+      const response = await fetch(`/api/dev/users/${id}`, requestOptions);
 
       if (!response.ok) {
         setErrorMessage("Could not get the user");
