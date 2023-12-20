@@ -1,0 +1,18 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: backend/
+      dockerfile: Dockerfile #Путь к папке с Dockerfile для backend
+    command: uvicorn main:app --host 0.0.0.0
+    ports:
+      - "8000:8000"  # Проброс порта для FastAPI
+
+  frontend:
+    build:
+      context: frontend/
+      dockerfile: Dockerfile # Путь к папке с Dockerfile для frontend
+    ports:
+      - "3000:3000"  # Проброс порта для frontend
+    depends_on:
+      - backend  # Зависимость frontend от backend
