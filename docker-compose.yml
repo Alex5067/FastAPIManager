@@ -3,20 +3,24 @@ services:
   backend:
     build:
       context: backend/
-      dockerfile: Dockerfile #Путь к папке с Dockerfile для backend
+      dockerfile: Dockerfile
+      args:
+        - GIT_BRANCH=${GIT_BRANCH:-main}
     environment:
-      - GIT_BRANCH
+      - GIT_BRANCH=${GIT_BRANCH:-main}
     command: uvicorn main:app --host 0.0.0.0
     ports:
-      - "${API_PORT}:8000"  # Проброс порта для FastAPI
+      - "${API_PORT}:8000"
 
   frontend:
     build:
       context: frontend/
-      dockerfile: Dockerfile # Путь к папке с Dockerfile для frontend
+      dockerfile: Dockerfile
+      args:
+        - GIT_BRANCH=${GIT_BRANCH:-main}
     environment:
-      - GIT_BRANCH
+      - GIT_BRANCH=${GIT_BRANCH:-main}
     ports:
-      - "${FRONT_PORT}:3000"  # Проброс порта для frontend
+      - "${FRONT_PORT}:3000"
     depends_on:
-      - backend  # Зависимость frontend от backend
+      - backend
