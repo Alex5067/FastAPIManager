@@ -2,8 +2,7 @@ version: '3'
 services:
   backend:
     build:
-      context: backend/
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_Back
       args:
         - GIT_BRANCH=${GIT_BRANCH:-main}
     environment:
@@ -14,8 +13,7 @@ services:
 
   frontend:
     build:
-      context: frontend/
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_Front
       args:
         - GIT_BRANCH=${GIT_BRANCH:-main}
     environment:
