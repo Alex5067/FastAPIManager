@@ -39,6 +39,7 @@ The skills chart uses the Chart.js library.
 ### `cd src/docker`
 ### `docker-compose up`
 
+First you need creaate admin with email and password on backend, then you will can login on frontend and see all users from database.
 Open [http://localhost:8000/docs](http://localhost:8000/docs) to view API methods.
 
 The page will reload if you make edits.\
