@@ -36,7 +36,7 @@ The skills chart uses the Chart.js library.
 ### Usage
 
 ### `git clone https://github.com/Alex5067/FastAPIManager.git src`
-### `cd src`
+### `cd src/docker`
 ### `docker-compose up`
 
 Open [http://localhost:8000/docs](http://localhost:8000/docs) to view API methods.
