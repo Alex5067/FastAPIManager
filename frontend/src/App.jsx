@@ -18,7 +18,7 @@ const App = () => {
         "Content-Type": "application/json",
       },
     };
-    const response = await fetch("http://localhost:8000/api", requestOptions);
+    const response = await fetch("http://localhost:8000/api/dev", requestOptions);
     const data = await response.json();
 
     if (!response.ok) {

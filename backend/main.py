@@ -19,7 +19,7 @@ origins = [
 app.add_middleware(cors.CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
 
 # Create Admin
-@app.post("/api/admins")
+@app.post("/api/dev/admins")
 async def createAdmin(admin: schemas.AdminCreate, db: orm.Session = fastapi.Depends(services.getDb)):
     
     dbAdmin = await services.getAdminByEmail(admin.email, db)
@@ -31,7 +31,7 @@ async def createAdmin(admin: schemas.AdminCreate, db: orm.Session = fastapi.Depe
 
 
 # Authenticate Admin
-@app.post("/api/admins/me", response_model=schemas.Admin)
+@app.post("/api/dev/admins/me", response_model=schemas.Admin)
 async def authAdmin(admin: schemas.AdminCreate, db: orm.Session = fastapi.Depends(services.getDb)):
     
     dbAdmin = await services.authAdmin(admin.email, admin.hashedPW, db)
@@ -42,7 +42,7 @@ async def authAdmin(admin: schemas.AdminCreate, db: orm.Session = fastapi.Depend
     return dbAdmin
 
 # Create User
-@app.post("/api/users", response_model=schemas.User)
+@app.post("/api/dev/users", response_model=schemas.User)
 async def createUser(user: schemas.UserCreate, db: orm.Session = fastapi.Depends(services.getDb)):
     
     dbUser = await services.getUserByEmail(user.email, db)
@@ -54,33 +54,33 @@ async def createUser(user: schemas.UserCreate, db: orm.Session = fastapi.Depends
 
 
 # Get User
-@app.get("/api/users/{userId}", status_code=200, response_model=schemas.User)
+@app.get("/api/dev/users/{userId}", status_code=200, response_model=schemas.User)
 async def getUser(email: str, db: orm.Session = fastapi.Depends(services.getDb)):
     
     return await services.getUserByEmail(email, db)
 
 
 # Get All Users
-@app.get("/api/users", response_model=List[schemas.User])
+@app.get("/api/dev/users", response_model=List[schemas.User])
 async def getAllUsers(db: orm.Session = fastapi.Depends(services.getDb)):
     
     return await services.getAllUsers(db=db)
 
 
 # Delete User
-@app.delete("/api/users/{userId}", status_code=204)
+@app.delete("/api/dev/users/{userId}", status_code=204)
 async def deleteUser(userId: int, db: orm.Session = fastapi.Depends(services.getDb)):
         
         return await services.deleteUser(userId, db=db)
     
 
 # Delete Admin
-@app.delete("/api/admins/{adminId}", status_code=204)
+@app.delete("/api/dev/admins/{adminId}", status_code=204)
 async def deleteAdmin(adminId: int, db: orm.Session = fastapi.Depends(services.getDb)):
         
         return await services.deleteAdmin(adminId, db=db)
     
 # Root
-@app.get("/api")
+@app.get("/api/dev")
 async def root():
     return {"message": "Hello Manager!"}

@@ -37,7 +37,7 @@ const Table = () => {
       },
     };
     const response = await fetch(
-      "http://localhost:8000/api/users",
+      "http://localhost:8000/api/dev/users",
       requestOptions
     );
 
