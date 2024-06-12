@@ -2,14 +2,14 @@
 
 ## Backend
 
-The project backend is made using Python.
-The database was created using SQLAlchemy.
-The framework for creating the RESTful API is FastAPI.
-The backend needs to be running for the frontend to work.
+Бэк проекта выполнена на Python.
+БДсоздана с использованием SQLAlchemy.
+Фреймворк для создания RESTful API является FastAPI.
+Нужен зарущенный бэк для того, чтобы работал фронт.
 
 ### Models
 
-There are 2 entities:
+2 сущности:
 
 Admin:
 *   id
@@ -29,9 +29,9 @@ User:
 
 ## Frontend
 
-The project frontend is made using React.
-The styles of each component are modified in their respective .css.
-The skills chart uses the Chart.js library.
+Фронт сделан с использованием React.
+Стиль каждого компонента модифицирован в .css.
+Диаграмма навыков использует библиотеку Chart.js.
 
 ### Usage
 
@@ -39,15 +39,13 @@ The skills chart uses the Chart.js library.
 ### `cd src/docker`
 ### `docker-compose up`
 
-First you need creaate admin with email and password on backend, then you will can login on frontend and see all users from database.\
-Change .env to preferable branch and ports.\
-Open [http://localhost:8000/docs](http://localhost:8000/docs) to view API methods.
+Сначала нужно создать администратора с адресом электронной почты и паролем на бэке, затем можно будет войти на фронт и увидеть всех пользователей из базы данных.\
+Измените .env, чтобы изменить ветку и порты.\
+Откройте [http://localhost:8000/docs](http://localhost:8000/docs), чтобы увидеть методы API.
 
-The page will reload if you make edits.\
-The page shows all the available CRUD options for the backend.
-Using the "Try it out" option for each operation modifies the database.db file or use Postman.
+Страница будет перезагружена, если будут сделаны изменения.\
+Страница показывет все доступные CRUD операции для бэка.
+Используйте "Try it out" для каждой операции(меняет database.db) или используйте Postman.
 
 
-Open [http://localhost:3000](http://localhost:3000) to view web-form allow you check users.
-The page will reload if you make edits.
-
+Oткройте [http://localhost:3000](http://localhost:3000), чтобы смотреть веб-форму, которая позволит проверять пользователей.
